@@ -2,6 +2,6 @@
 
 The project is about implementing Neural Networks on ARM Processors.
 
-# Hardware Used: STM32F407G-DISC1
+Hardware Used: STM32F407G-DISC1
 
-# Software Used: Keil Vision
+Software Used: Keil MDK ARM
