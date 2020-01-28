@@ -7,7 +7,10 @@ double single_in_single_out_nn(double  input, double weight)
 }
 
 
-double weighted_sum(double * input, double * weight, uint32_t INPUT_LEN){
+double weighted_sum(double * input, 
+		    double * weight, 
+		    uint32_t INPUT_LEN)
+{
 
 	double output;
 	
@@ -17,7 +20,10 @@ double weighted_sum(double * input, double * weight, uint32_t INPUT_LEN){
  return output;
 }
 
-double multiple_inputs_single_output_nn(double * input, double *weight, uint32_t INPUT_LEN){
+double multiple_inputs_single_output_nn(double * input, 
+					double *weight, 
+					uint32_t INPUT_LEN)
+{
   
 	double predicted_value;
 	
@@ -29,9 +35,9 @@ double multiple_inputs_single_output_nn(double * input, double *weight, uint32_t
 
 
 void elementwise_multiple( double input_scalar,
-													 double *weight_vector,
-													 double *output_vector,
-													 double VECTOR_LEN)
+			   double *weight_vector,
+	                   double *output_vector,
+			   double VECTOR_LEN)
 {
 	for(int i =0;i<VECTOR_LEN;i++){
 	   output_vector[i] =  input_scalar *weight_vector[i];
@@ -48,10 +54,10 @@ void single_input_multiple_output_nn(	double input_scalar,
 																			
 
 void matrix_vector_multiplication(double * input_vector,
-																	uint32_t INPUT_LEN,
-																	double * output_vector,
-																	uint32_t OUTPUT_LEN,
-																	double weights_matrix[OUTPUT_LEN][INPUT_LEN])
+				  uint32_t INPUT_LEN,
+				  double * output_vector,
+				  uint32_t OUTPUT_LEN,
+				  double weights_matrix[OUTPUT_LEN][INPUT_LEN])
 {
 	
 	for(int k=0;k<OUTPUT_LEN;k++){
@@ -63,10 +69,10 @@ void matrix_vector_multiplication(double * input_vector,
 }
 
 void multiple_inputs_multiple_outputs_nn(double * input_vector,
-																	uint32_t INPUT_LEN,
-																	double * output_vector,
-																	uint32_t OUTPUT_LEN,
-																	double weights_matrix[OUTPUT_LEN][INPUT_LEN])
+					 uint32_t INPUT_LEN,
+					 double * output_vector,
+					 uint32_t OUTPUT_LEN,
+					 double weights_matrix[OUTPUT_LEN][INPUT_LEN])
 {
 	matrix_vector_multiplication(input_vector,INPUT_LEN,output_vector,OUTPUT_LEN,weights_matrix);														
 }
@@ -74,12 +80,12 @@ void multiple_inputs_multiple_outputs_nn(double * input_vector,
 
 
 void hidden_nn( double *input_vector,
-								uint32_t INPUT_LEN,
-								uint32_t HIDDEN_LEN,
+		uint32_t INPUT_LEN,
+		uint32_t HIDDEN_LEN,
                 double in_to_hid_weights[HIDDEN_LEN][INPUT_LEN],
-								uint32_t OUTPUT_LEN,
-								double hid_to_out_weights[OUTPUT_LEN][HIDDEN_LEN],
-								double *output_vector
+		uint32_t OUTPUT_LEN,
+		double hid_to_out_weights[OUTPUT_LEN][HIDDEN_LEN],
+		double *output_vector
 							)
 {
 	double hidden_pred_vector[HIDDEN_LEN];
@@ -100,10 +106,10 @@ double find_error_(double input, double weight, double expected_value){
 }
 
 void brute_force_learning( double input,
-													 double weight,
-													 double expected_value,
-													 double step_amount,
-													 uint32_t itr)
+			   double weight,
+			   double expected_value,
+			   double step_amount,
+			   uint32_t itr)
 {
    double prediction,error;
    double up_prediction,down_prediction,up_error, down_error;
